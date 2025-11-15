@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB04AD902EC89AF900BA75F3 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = CB04AD8F2EC89AF900BA75F3 /* PythonKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB0196EC2EC5C8ED0064039E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB0196D22EC5C8EC0064039E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB0196D92EC5C8EC0064039E;
+			remoteInfo = EasyNoBg;
+		};
+		CB0196F62EC5C8ED0064039E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB0196D22EC5C8EC0064039E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB0196D92EC5C8EC0064039E;
+			remoteInfo = EasyNoBg;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CB0196DA2EC5C8EC0064039E /* RemoveThatBG!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RemoveThatBG!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB0196EB2EC5C8ED0064039E /* RemoveThatBG!Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RemoveThatBG!Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB0196F52EC5C8ED0064039E /* RemoveThatBG!UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RemoveThatBG!UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB0FFD892EC93E2E00F58CA4 /* RemoveThatBG!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RemoveThatBG!.entitlements"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		CB0196DC2EC5C8EC0064039E /* RemoveThatBG */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RemoveThatBG;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB0196D72EC5C8EC0064039E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB04AD902EC89AF900BA75F3 /* PythonKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB0196E82EC5C8ED0064039E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB0196F22EC5C8ED0064039E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB0196D12EC5C8EC0064039E = {
+			isa = PBXGroup;
+			children = (
+				CB0FFD892EC93E2E00F58CA4 /* RemoveThatBG!.entitlements */,
+				CB0196DC2EC5C8EC0064039E /* RemoveThatBG */,
+				CB04AD952EC8A25900BA75F3 /* Frameworks */,
+				CB0196DB2EC5C8EC0064039E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB0196DB2EC5C8EC0064039E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB0196DA2EC5C8EC0064039E /* RemoveThatBG!.app */,
+				CB0196EB2EC5C8ED0064039E /* RemoveThatBG!Tests.xctest */,
+				CB0196F52EC5C8ED0064039E /* RemoveThatBG!UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB04AD952EC8A25900BA75F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB0196D92EC5C8EC0064039E /* RemoveThatBG! */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB0196FF2EC5C8ED0064039E /* Build configuration list for PBXNativeTarget "RemoveThatBG!" */;
+			buildPhases = (
+				CB0196D62EC5C8EC0064039E /* Sources */,
+				CB0196D72EC5C8EC0064039E /* Frameworks */,
+				CB0196D82EC5C8EC0064039E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				CB0196DC2EC5C8EC0064039E /* RemoveThatBG */,
+			);
+			name = "RemoveThatBG!";
+			packageProductDependencies = (
+				CB04AD8F2EC89AF900BA75F3 /* PythonKit */,
+			);
+			productName = EasyNoBg;
+			productReference = CB0196DA2EC5C8EC0064039E /* RemoveThatBG!.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB0196EA2EC5C8ED0064039E /* RemoveThatBG!Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB0197022EC5C8ED0064039E /* Build configuration list for PBXNativeTarget "RemoveThatBG!Tests" */;
+			buildPhases = (
+				CB0196E72EC5C8ED0064039E /* Sources */,
+				CB0196E82EC5C8ED0064039E /* Frameworks */,
+				CB0196E92EC5C8ED0064039E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB0196ED2EC5C8ED0064039E /* PBXTargetDependency */,
+			);
+			name = "RemoveThatBG!Tests";
+			packageProductDependencies = (
+			);
+			productName = EasyNoBgTests;
+			productReference = CB0196EB2EC5C8ED0064039E /* RemoveThatBG!Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CB0196F42EC5C8ED0064039E /* RemoveThatBG!UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB0197052EC5C8ED0064039E /* Build configuration list for PBXNativeTarget "RemoveThatBG!UITests" */;
+			buildPhases = (
+				CB0196F12EC5C8ED0064039E /* Sources */,
+				CB0196F22EC5C8ED0064039E /* Frameworks */,
+				CB0196F32EC5C8ED0064039E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB0196F72EC5C8ED0064039E /* PBXTargetDependency */,
+			);
+			name = "RemoveThatBG!UITests";
+			packageProductDependencies = (
+			);
+			productName = EasyNoBgUITests;
+			productReference = CB0196F52EC5C8ED0064039E /* RemoveThatBG!UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB0196D22EC5C8EC0064039E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					CB0196D92EC5C8EC0064039E = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					CB0196EA2EC5C8ED0064039E = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = CB0196D92EC5C8EC0064039E;
+					};
+					CB0196F42EC5C8ED0064039E = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = CB0196D92EC5C8EC0064039E;
+					};
+				};
+			};
+			buildConfigurationList = CB0196D52EC5C8EC0064039E /* Build configuration list for PBXProject "RemoveThatBG!" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB0196D12EC5C8EC0064039E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CB04AD8E2EC89AF900BA75F3 /* XCRemoteSwiftPackageReference "PythonKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = CB0196DB2EC5C8EC0064039E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB0196D92EC5C8EC0064039E /* RemoveThatBG! */,
+				CB0196EA2EC5C8ED0064039E /* RemoveThatBG!Tests */,
+				CB0196F42EC5C8ED0064039E /* RemoveThatBG!UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB0196D82EC5C8EC0064039E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB0196E92EC5C8ED0064039E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB0196F32EC5C8ED0064039E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB0196D62EC5C8EC0064039E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB0196E72EC5C8ED0064039E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB0196F12EC5C8ED0064039E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB0196ED2EC5C8ED0064039E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB0196D92EC5C8EC0064039E /* RemoveThatBG! */;
+			targetProxy = CB0196EC2EC5C8ED0064039E /* PBXContainerItemProxy */;
+		};
+		CB0196F72EC5C8ED0064039E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB0196D92EC5C8EC0064039E /* RemoveThatBG! */;
+			targetProxy = CB0196F62EC5C8ED0064039E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CB0196FD2EC5C8ED0064039E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB0196FE2EC5C8ED0064039E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		CB0197002EC5C8ED0064039E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "RemoveThatBG!.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RemoveThatBG/Preview Content\"";
+				DEVELOPMENT_TEAM = VR858T6WYN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/cv2/.dylibs",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/PIL/.dylibs",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/scipy/.dylibs",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/numpy/_core/lib",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/numpy/random/lib",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/torch/lib",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/torchvision/.dylibs",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/onnxruntime/capi",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/coremltools",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/skimage/.dylibs",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/rpds",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/llvmlite/binding",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/google/_upb",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pietrosaveri.RemoveThatBG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CB0197012EC5C8ED0064039E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "RemoveThatBG!.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RemoveThatBG/Preview Content\"";
+				DEVELOPMENT_TEAM = VR858T6WYN;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/cv2/.dylibs",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/PIL/.dylibs",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/scipy/.dylibs",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/numpy/_core/lib",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/numpy/random/lib",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/torch/lib",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/torchvision/.dylibs",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/onnxruntime/capi",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/coremltools",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/skimage/.dylibs",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/rpds",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/llvmlite/binding",
+					"$(PROJECT_DIR)/EasyNoBg/.venv/lib/python3.12/site-packages/google/_upb",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pietrosaveri.RemoveThatBG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		CB0197032EC5C8ED0064039E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VR858T6WYN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pietrosaveri.EasyNoBgTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RemoveThatBG!.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RemoveThatBG!";
+			};
+			name = Debug;
+		};
+		CB0197042EC5C8ED0064039E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VR858T6WYN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pietrosaveri.EasyNoBgTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RemoveThatBG!.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RemoveThatBG!";
+			};
+			name = Release;
+		};
+		CB0197062EC5C8ED0064039E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VR858T6WYN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pietrosaveri.EasyNoBgUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = EasyNoBg;
+			};
+			name = Debug;
+		};
+		CB0197072EC5C8ED0064039E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VR858T6WYN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pietrosaveri.EasyNoBgUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = EasyNoBg;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB0196D52EC5C8EC0064039E /* Build configuration list for PBXProject "RemoveThatBG!" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB0196FD2EC5C8ED0064039E /* Debug */,
+				CB0196FE2EC5C8ED0064039E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB0196FF2EC5C8ED0064039E /* Build configuration list for PBXNativeTarget "RemoveThatBG!" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB0197002EC5C8ED0064039E /* Debug */,
+				CB0197012EC5C8ED0064039E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB0197022EC5C8ED0064039E /* Build configuration list for PBXNativeTarget "RemoveThatBG!Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB0197032EC5C8ED0064039E /* Debug */,
+				CB0197042EC5C8ED0064039E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB0197052EC5C8ED0064039E /* Build configuration list for PBXNativeTarget "RemoveThatBG!UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB0197062EC5C8ED0064039E /* Debug */,
+				CB0197072EC5C8ED0064039E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CB04AD8E2EC89AF900BA75F3 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CB04AD8F2EC89AF900BA75F3 /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB04AD8E2EC89AF900BA75F3 /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = CB0196D22EC5C8EC0064039E /* Project object */;
+}
