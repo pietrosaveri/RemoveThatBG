@@ -83,3 +83,8 @@ Artifacts/
 # Other
 *.lock
 
+# Ignore Xcode workspace user data
+*.xcuserstate
+xcuserdata/
+
+
