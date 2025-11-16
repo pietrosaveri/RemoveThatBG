@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		CB04AD902EC89AF900BA75F3 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = CB04AD8F2EC89AF900BA75F3 /* PythonKit */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		CB0196EC2EC5C8ED0064039E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -47,7 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB04AD902EC89AF900BA75F3 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +110,6 @@
 			);
 			name = "RemoveThatBG!";
 			packageProductDependencies = (
-				CB04AD8F2EC89AF900BA75F3 /* PythonKit */,
 			);
 			productName = EasyNoBg;
 			productReference = CB0196DA2EC5C8EC0064039E /* RemoveThatBG!.app */;
@@ -194,7 +188,6 @@
 			mainGroup = CB0196D12EC5C8EC0064039E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				CB04AD8E2EC89AF900BA75F3 /* XCRemoteSwiftPackageReference "PythonKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CB0196DB2EC5C8EC0064039E /* Products */;
@@ -399,9 +392,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RemoveThatBG/Preview Content\"";
 				DEVELOPMENT_TEAM = VR858T6WYN;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "RemoveThatBG!";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -443,9 +439,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RemoveThatBG/Preview Content\"";
 				DEVELOPMENT_TEAM = VR858T6WYN;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "RemoveThatBG!";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -584,25 +583,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		CB04AD8E2EC89AF900BA75F3 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pvieito/PythonKit";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		CB04AD8F2EC89AF900BA75F3 /* PythonKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CB04AD8E2EC89AF900BA75F3 /* XCRemoteSwiftPackageReference "PythonKit" */;
-			productName = PythonKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CB0196D22EC5C8EC0064039E /* Project object */;
 }

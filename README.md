@@ -1,5 +1,10 @@
-# RemoveThatBG!
 
+<p align="center">
+  <img src="Logos/AppLogo/RemoveThatBG_App.png" width="300">
+</p>
+
+<h1 align="center">
+RemoveThatBG!
 
 
 <h1 align="center">
@@ -17,10 +22,7 @@
 
 
 
-
-
-
-## About the App
+# About the App
 
 Have you ever had to do a PowerPoint or a presentation where you needed an image, but it had a horrible background?
 You probably went on Google and typed "image background removal," and yes, a lot of sites are there, they work great, but wait—
@@ -35,7 +37,7 @@ Have fun!!
 
 ---
 
-## Features
+# Features
 <div align="center">
 	<img src="https://img.shields.io/badge/MacOS-Menu%20Bar%20App-blue?style=for-the-badge" />
 	<img src="https://img.shields.io/badge/No%20Ads-100%25%20Private-brightgreen?style=for-the-badge" />
@@ -65,7 +67,7 @@ Have fun!!
 
 ---
 
-## Settings (⌘+,)
+# Settings (⌘+,)
 
 RemoveThatBG! offers a beautiful, intuitive settings page to tailor the app to your workflow:
 
@@ -81,7 +83,7 @@ RemoveThatBG! offers a beautiful, intuitive settings page to tailor the app to y
 - **Modern UI:** Enjoy a clean, elegant interface with accent colors and smooth transitions.
 - **Future Features:** More design customization options are planned, including themes and advanced UI tweaks.
 
-## Installation
+# Installation
 
 1. **Download:** Get the latest release of RemoveThatBG!
 2. **Install:** Drag the app into your Applications folder.
@@ -89,7 +91,7 @@ RemoveThatBG! offers a beautiful, intuitive settings page to tailor the app to y
 
 ---
 
-## Usage
+# Usage
 
 1. Click the menu bar icon to open RemoveThatBG!.
 2. Drag and drop or paste your image into the app window.
@@ -97,7 +99,7 @@ RemoveThatBG! offers a beautiful, intuitive settings page to tailor the app to y
 4. Copy or drag the processed image wherever you need it.
 
 ---
-## 🙏 Credits & Thanks
+# 🙏 Credits & Thanks
 
 - **Background removal powered by [rembg](https://github.com/danielgatis/rembg)**
 - Created by Pietro Saveri for a real need.
