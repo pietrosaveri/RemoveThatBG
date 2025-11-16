@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var isHovering = false
     @State private var isRightAreaHovering = false  // ← NEW: For right area hover
     @State private var canPaste = false  // ← NEW: Check if clipboard has image
+    @State private var progress: Double = 0.0 // NEW: Progress state
     @StateObject private var settings = SettingsManager.shared
     
     var body: some View {
@@ -187,6 +188,14 @@ struct ContentView: View {
                 .cornerRadius(4)
             }
             .padding(.bottom, 8)
+            
+            // Loading bar - NEW
+            if isProcessing {
+                ProgressView(value: progress, total: 1.0)
+                    .progressViewStyle(LinearProgressViewStyle())
+                    .padding(.horizontal, 16)
+                    .padding(.top, 8)
+            }
         }
         .frame(width: 500, height: 270)
         .background(.ultraThinMaterial)
@@ -342,19 +351,16 @@ struct ContentView: View {
         print("Copied to clipboard: \(success)")
     }
 
-
-
-    
-    
     // Remove background using Python script
     func removeBackground(from image: NSImage) {
         isProcessing = true
         processedImage = nil
-        
+        progress = 0.0
+
         DispatchQueue.global(qos: .userInitiated).async {
             let tempInput = FileManager.default.temporaryDirectory.appendingPathComponent("input_\(UUID().uuidString).png")
             let tempOutput = FileManager.default.temporaryDirectory.appendingPathComponent("output_\(UUID().uuidString).png")
-            
+
             // Save input image
             guard let tiffData = image.tiffRepresentation,
                   let bitmapImage = NSBitmapImageRep(data: tiffData),
@@ -364,12 +370,13 @@ struct ContentView: View {
                 }
                 return
             }
-            
+
             do {
                 try pngData.write(to: tempInput)
-                
-                // for local python
-                //guard let scriptPath = Bundle.main.path(forResource: "remove_bg", ofType: "py")
+                DispatchQueue.main.async {
+                    self.progress = 0.05
+                }
+
                 guard let scriptPath = Bundle.main.url(forResource: "remove_bg", withExtension: nil) else {
                     print("ERROR: Python script not found in bundle")
                     DispatchQueue.main.async {
@@ -377,40 +384,56 @@ struct ContentView: View {
                     }
                     return
                 }
-                
-                // Run Python script
-                let process = Process()
-                
-                //for local pytyon
-                //process.executableURL = URL(fileURLWithPath: "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3")
-                
-                process.executableURL = scriptPath
-                
-                //for local python
-                //process.arguments = [scriptPath, tempInput.path, tempOutput.path, self.settings.selectedModel]
 
+                let process = Process()
+                process.executableURL = scriptPath
                 process.arguments = [tempInput.path, tempOutput.path, self.settings.selectedModel]
-                
+
                 let pipe = Pipe()
                 process.standardOutput = pipe
                 process.standardError = pipe
-                
+
                 try process.run()
+
+                // Smooth progress animation while processing
+                DispatchQueue.global(qos: .background).async {
+                    while process.isRunning {
+                        DispatchQueue.main.async {
+                            // Smooth increment but never reach 100% until done
+                            if self.progress < 0.95 {
+                                self.progress += 0.01
+                            }
+                        }
+                        Thread.sleep(forTimeInterval: 0.2)
+                    }
+                }
+
                 process.waitUntilExit()
-                
+
                 // Read output for debugging
                 let data = pipe.fileHandleForReading.readDataToEndOfFile()
                 if let output = String(data: data, encoding: .utf8) {
                     print("Python output: \(output)")
                 }
                 print("Exit code: \(process.terminationStatus)")
-                
+
                 // Load result
                 if FileManager.default.fileExists(atPath: tempOutput.path),
                    let resultImage = NSImage(contentsOf: tempOutput) {
                     DispatchQueue.main.async {
                         self.processedImage = resultImage
-                        self.isProcessing = false
+                        
+                        // Speed to 100% if not there yet
+                        if self.progress < 1.0 {
+                            withAnimation(.easeOut(duration: 0.3)) {
+                                self.progress = 1.0
+                            }
+                        }
+                        
+                        // Small delay before hiding the progress bar
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.isProcessing = false
+                        }
                     }
                 } else {
                     print("Output file not found at: \(tempOutput.path)")
@@ -418,11 +441,11 @@ struct ContentView: View {
                         self.isProcessing = false
                     }
                 }
-                
+
                 // Cleanup temp files
                 try? FileManager.default.removeItem(at: tempInput)
                 try? FileManager.default.removeItem(at: tempOutput)
-                
+
             } catch {
                 print("Error: \(error)")
                 DispatchQueue.main.async {

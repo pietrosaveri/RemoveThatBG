@@ -66,8 +66,6 @@ struct SettingsView: View {
         ModelOption("silueta", "Same as u2net but the size is reduced to 43Mb."),
         ModelOption("isnet-general-use", "A new pre-trained model for general use cases. (recommended)"),
         ModelOption("isnet-anime", "A high-accuracy segmentation for anime character."),
-        
-        ModelOption("sam", "General use cases"),
         ModelOption("birefnet-general", "A pre-trained model for general use cases."),
         ModelOption("birefnet-general-lite", "A light pre-trained model for general use cases."),
         ModelOption("birefnet-portrait", "A pre-trained model for human portraits."),
@@ -223,6 +221,23 @@ struct ModelTabContent: View {
                 }
                 .padding(.top, 8)
             }
+                
+            Text("Speed: ")
+                .font(.headline)
+            
+            Text("""
+            When you download a new model, the first image may take longer to process while the system initializes. After that, processing will be much faster.
+
+            If you have a slow internet connection, consider using a local model for smoother performance.
+
+            We are actively working to optimize image-processing speed. The models themselves are fast, but the current Swift–Python integration introduces some overhead. Future updates will continue to improve performance.
+            """)
+                .font(.body)
+                .foregroundColor(.secondary)
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.gray.opacity(0.1))
+                .cornerRadius(8)
             
             Text("Note: First use of a new model will download it to ~/.u2net/")
                 .font(.caption)
