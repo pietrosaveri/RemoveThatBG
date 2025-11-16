@@ -1,5 +1,78 @@
-Logos/
-PythonBackend/
+#Logos/
+#PythonBackend/
+#RemoveThatBG!/RemoveThatBG/remove_bg
+
 __pycache__/
 .DS_Store
-RemoveThatBG!/RemoveThatBG/remove_bg
+
+### Xcode ###
+# Build artifacts
+build/
+DerivedData/
+
+# Personal settings
+xcuserdata/
+*.xcuserstate
+
+# Workspace & schemes (safe to ignore unless shared)
+*.xcworkspace
+xcshareddata/WorkspaceSettings.xcsettings
+
+# IDE files
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Swift Package Manager
+Packages/
+.build/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+.swiftpm/xcode/xcshareddata/
+.swiftpm/xcode/playgrounds/
+
+# CocoaPods (if you use it)
+Pods/
+Podfile.lock
+
+# Carthage (if you use it)
+Carthage/Build/
+Carthage/Checkouts/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Archives
+*.xcarchive
+
+# App artifacts
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# SwiftPM binary artifacts
+Artifacts/
+
+# Simulator / device logs
+*.log
+
+# Env files / secrets
+.env
+.env.*
+
+# Bundle artifacts
+*.app
+*.framework
+*.xcframework
+
+# Other
+*.lock
+
