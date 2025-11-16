@@ -2,6 +2,13 @@
 #PythonBackend/
 #RemoveThatBG!/RemoveThatBG/remove_bg
 
+# Ignore the PythonBackend dist folder
+PythonBackend/dist/remove_bg
+
+# Ignore the RemoveThatBG! binary
+RemoveThatBG!/RemoveThatBG/remove_bg
+
+
 __pycache__/
 .DS_Store
 
