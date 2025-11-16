@@ -1,6 +1,6 @@
 #Logos/
 #PythonBackend/
-#RemoveThatBG!/RemoveThatBG/remove_bg
+"RemoveThatBG!/RemoveThatBG/remove_bg
 
 # Ignore the PythonBackend dist folder
 PythonBackend/dist/remove_bg
