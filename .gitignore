@@ -1,6 +1,6 @@
 #Logos/
 #PythonBackend/
-#RemoveThatBG!/RemoveThatBG/remove_bg
+RemoveThatBG!/RemoveThatBG/remove_bg
 
 __pycache__/
 .DS_Store
