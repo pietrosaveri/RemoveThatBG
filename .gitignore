@@ -4,8 +4,8 @@ PythonBackend/dist/
 PythonBackend/build/
 RemoveThatBG\!/RemoveThatBG/remove_bg_old
 
-#do not ignore this
-!RemoveThatBG\!/RemoveThatBG/remove_bg/
+#IGNORE THE OUTUT OF THE remove_bg.spec FILE if you really want it you copy and paste it XCODE
+RemoveThatBG\!/RemoveThatBG/remove_bg/
 
 
 #HERE
