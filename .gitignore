@@ -1,8 +1,5 @@
-#Logos/
-#PythonBackend/
-#RemoveThatBG\!/RemoveThatBG/remove_bg
 
-# Ignore the PythonBackend dist folder
+# Ignore the PythonBackend dist folder and old binary
 PythonBackend/dist/
 PythonBackend/build/
 RemoveThatBG\!/RemoveThatBG/remove_bg_old
@@ -11,19 +8,9 @@ RemoveThatBG\!/RemoveThatBG/remove_bg_old
 !RemoveThatBG\!/RemoveThatBG/remove_bg/
 
 
-
-
-# Ignore the RemoveThatBG! binary
-#RemoveThatBG\!/RemoveThatBG/remove_bg
-
 #HERE
 __pycache__/
 .DS_Store
-
-### Xcode ###
-# Build artifacts
-build/
-DerivedData/
 
 # Personal settings
 xcuserdata/
@@ -36,20 +23,6 @@ xcuserdata/
 .swiftpm/xcode/package.xcworkspace/xcuserdata/
 .swiftpm/xcode/xcshareddata/
 .swiftpm/xcode/playgrounds/
-
-# CocoaPods (if you use it)
-Pods/
-Podfile.lock
-
-# Carthage (if you use it)
-Carthage/Build/
-Carthage/Checkouts/
-
-# Fastlane
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
-fastlane/test_output
 
 
 # Playgrounds
