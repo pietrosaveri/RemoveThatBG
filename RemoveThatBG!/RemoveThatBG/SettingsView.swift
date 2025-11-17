@@ -183,6 +183,8 @@ struct AuthorsTabContent: View {
 struct ModelTabContent: View {
     @ObservedObject var settings: SettingsManager
     let models: [ModelOption]
+    @State private var downloadingModel: String?
+    @State private var downloadComplete: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -212,12 +214,16 @@ struct ModelTabContent: View {
                         .cornerRadius(8)
                 }
                 
-                // Model status check
+                // Model status check with download button
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Status:")
                         .font(.headline)
                     
-                    ModelStatusView(modelName: selectedModelInfo.name)
+                    ModelStatusView(
+                        modelName: selectedModelInfo.name,
+                        downloadingModel: $downloadingModel,
+                        downloadComplete: $downloadComplete
+                    )
                 }
                 .padding(.top, 8)
             }
@@ -226,11 +232,18 @@ struct ModelTabContent: View {
                 .font(.headline)
             
             Text("""
-            When you download a new model, the first image may take longer to process while the system initializes. After that, processing will be much faster.
-
-            If you have a slow internet connection, consider using a local model for smoother performance.
-
-            We are actively working to optimize image-processing speed. The models themselves are fast, but the current Swift–Python integration introduces some overhead. Future updates will continue to improve performance.
+            When you download a new model, the download begins immediately. Depending on the model’s size, this process may take some time.
+            
+            The “Silueta” model is the lightest option and still delivers very good results, making it ideal for most users.
+            
+            If you have a slow or unstable internet connection, consider using a local model for faster and more reliable performance.
+            The model server runs on port 55000 on your computer.
+            
+            When you close the app, the server shuts down automatically.
+            If the server fails to start, you may have another process using that port.
+            To check, run the following command in your terminal: 
+            
+            "lsof -i :55000"
             """)
                 .font(.body)
                 .foregroundColor(.secondary)
@@ -239,7 +252,7 @@ struct ModelTabContent: View {
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(8)
             
-            Text("Note: First use of a new model will download it to ~/.u2net/")
+            Text("Note: All models will download to ~/.u2net/")
                 .font(.caption)
                 .foregroundColor(.secondary)
                 .padding(.top, 8)
@@ -252,37 +265,76 @@ struct ModelTabContent: View {
 
 struct ModelStatusView: View {
     let modelName: String
+    @Binding var downloadingModel: String?
+    @Binding var downloadComplete: Bool
     
-    var isModelDownloaded: Bool {
+    // Simple computed property - checks file existence every time view updates
+    private var isDownloaded: Bool {
         let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
-        let modelPath = homeDirectory.appendingPathComponent(".u2net/\(modelName).onnx")
-        return FileManager.default.fileExists(atPath: modelPath.path)
+        let path = homeDirectory.appendingPathComponent(".u2net/\(modelName).onnx").path
+        return FileManager.default.fileExists(atPath: path)
     }
     
-    var modelPath: String {
+    private var modelPath: String {
         let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
         return homeDirectory.appendingPathComponent(".u2net/\(modelName).onnx").path
     }
     
     var body: some View {
-        HStack(spacing: 6) {
-            Image(systemName: isModelDownloaded ? "checkmark.circle.fill" : "arrow.down.circle")
-                .foregroundColor(isModelDownloaded ? .green : .secondary)
-            
-            if isModelDownloaded {
-                Text("Already downloaded at \(modelPath)")
-                    .font(.body)
-                    .foregroundColor(.green)
-            } else {
-                Text("Not yet downloaded")
-                    .font(.body)
-                    .foregroundColor(.secondary)
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 6) {
+                if downloadingModel == modelName {
+                    ProgressView()
+                        .scaleEffect(0.7)
+                    Text("Downloading...")
+                        .font(.body)
+                        .foregroundColor(.blue)
+                } else {
+                    Image(systemName: isDownloaded ? "checkmark.circle.fill" : "arrow.down.circle")
+                        .foregroundColor(isDownloaded ? .green : .orange)
+                    
+                    if isDownloaded {
+                        Text("Downloaded at \(modelPath)")
+                            .font(.body)
+                            .foregroundColor(.green)
+                    } else {
+                        Text("Not downloaded yet")
+                            .font(.body)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                
+                Spacer()
+                
+                // Download button only if NOT downloaded and NOT downloading
+                if !isDownloaded && downloadingModel != modelName {
+                    Button("Download Now") {
+                        startDownload()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.small)
+                }
+            }
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(isDownloaded ? Color.green.opacity(0.1) : Color.orange.opacity(0.1))
+            .cornerRadius(8)
+        }
+        // Force refresh when download completes
+        .id("\(modelName)-\(downloadComplete)")
+    }
+    
+    private func startDownload() {
+        downloadingModel = modelName
+        
+        PythonServerManager.shared.downloadModel(modelName) { success in
+            DispatchQueue.main.async {
+                downloadingModel = nil
+                if success {
+                    downloadComplete.toggle() // Trigger UI refresh
+                }
             }
         }
-        .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(isModelDownloaded ? Color.green.opacity(0.1) : Color.gray.opacity(0.1))
-        .cornerRadius(8)
     }
 }
 

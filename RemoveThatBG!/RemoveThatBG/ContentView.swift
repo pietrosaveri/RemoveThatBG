@@ -19,13 +19,27 @@ struct ContentView: View {
     @State private var canPaste = false  // ← NEW: Check if clipboard has image
     @State private var progress: Double = 0.0 // NEW: Progress state
     @StateObject private var settings = SettingsManager.shared
+    @ObservedObject private var serverManager = PythonServerManager.shared
     
     var body: some View {
         VStack(spacing: -10) {
             
-            // Preferences shortcut hint
+            // Top bar with server status and preferences
             HStack {
+                // Server status indicator
+                HStack(spacing: 4) {
+                    Image(systemName: serverManager.isServerRunning ? "checkmark.circle.fill" : "xmark.circle.fill")
+                        .foregroundColor(serverManager.isServerRunning ? .green : .red)
+                        .font(.system(size: 12))
+                    Text(serverManager.isServerRunning ? "Ready" : "Starting...")
+                        .font(.caption2)
+                        .foregroundColor(serverManager.isServerRunning ? .green : .red)
+                }
+                .padding(.leading, 12)
+                .padding(.top, 8)
+                
                 Spacer()
+                
                 Text("Preferences: ⌘,")
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -351,106 +365,75 @@ struct ContentView: View {
         print("Copied to clipboard: \(success)")
     }
 
-    // Remove background using Python script
+    // Remove background using Python server
     func removeBackground(from image: NSImage) {
         isProcessing = true
         processedImage = nil
         progress = 0.0
 
-        DispatchQueue.global(qos: .userInitiated).async {
-            let tempInput = FileManager.default.temporaryDirectory.appendingPathComponent("input_\(UUID().uuidString).png")
-            let tempOutput = FileManager.default.temporaryDirectory.appendingPathComponent("output_\(UUID().uuidString).png")
-
-            // Save input image
-            guard let tiffData = image.tiffRepresentation,
-                  let bitmapImage = NSBitmapImageRep(data: tiffData),
-                  let pngData = bitmapImage.representation(using: .png, properties: [:]) else {
+        DispatchQueue.main.async {
+            self.progress = 0.1
+        }
+        
+        let selectedModel = self.settings.selectedModel
+        
+        // Check if model is downloaded, download if needed
+        let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
+        let modelPath = homeDirectory.appendingPathComponent(".u2net/\(selectedModel).onnx")
+        let modelExists = FileManager.default.fileExists(atPath: modelPath.path)
+        
+        if !modelExists {
+            print("[ContentView] Model \(selectedModel) not found, downloading first...")
+            
+            PythonServerManager.shared.downloadModel(selectedModel) { success in
                 DispatchQueue.main.async {
-                    self.isProcessing = false
+                    if success {
+                        print("[ContentView] Model \(selectedModel) downloaded, now processing image")
+                        self.processImageWithModel(image, model: selectedModel)
+                    } else {
+                        print("[ContentView] Failed to download model \(selectedModel)")
+                        self.isProcessing = false
+                    }
                 }
-                return
             }
-
-            do {
-                try pngData.write(to: tempInput)
-                DispatchQueue.main.async {
-                    self.progress = 0.05
-                }
-
-                guard let scriptPath = Bundle.main.url(forResource: "remove_bg", withExtension: nil) else {
-                    print("ERROR: Python script not found in bundle")
-                    DispatchQueue.main.async {
+        } else {
+            // Model already exists, process immediately
+            print("[ContentView] Model \(selectedModel) already exists, processing image")
+            processImageWithModel(image, model: selectedModel)
+        }
+    }
+    
+    private func processImageWithModel(_ image: NSImage, model: String) {
+        PythonServerManager.shared.removeBackground(from: image, model: model) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let resultImage):
+                    // Smooth progress to completion
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        self.progress = 1.0
+                    }
+                    
+                    self.processedImage = resultImage
+                    
+                    // Small delay before hiding the progress bar
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self.isProcessing = false
                     }
-                    return
-                }
-
-                let process = Process()
-                process.executableURL = scriptPath
-                process.arguments = [tempInput.path, tempOutput.path, self.settings.selectedModel]
-
-                let pipe = Pipe()
-                process.standardOutput = pipe
-                process.standardError = pipe
-
-                try process.run()
-
-                // Smooth progress animation while processing
-                DispatchQueue.global(qos: .background).async {
-                    while process.isRunning {
-                        DispatchQueue.main.async {
-                            // Smooth increment but never reach 100% until done
-                            if self.progress < 0.95 {
-                                self.progress += 0.01
-                            }
-                        }
-                        Thread.sleep(forTimeInterval: 0.2)
-                    }
-                }
-
-                process.waitUntilExit()
-
-                // Read output for debugging
-                let data = pipe.fileHandleForReading.readDataToEndOfFile()
-                if let output = String(data: data, encoding: .utf8) {
-                    print("Python output: \(output)")
-                }
-                print("Exit code: \(process.terminationStatus)")
-
-                // Load result
-                if FileManager.default.fileExists(atPath: tempOutput.path),
-                   let resultImage = NSImage(contentsOf: tempOutput) {
-                    DispatchQueue.main.async {
-                        self.processedImage = resultImage
-                        
-                        // Speed to 100% if not there yet
-                        if self.progress < 1.0 {
-                            withAnimation(.easeOut(duration: 0.3)) {
-                                self.progress = 1.0
-                            }
-                        }
-                        
-                        // Small delay before hiding the progress bar
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            self.isProcessing = false
-                        }
-                    }
-                } else {
-                    print("Output file not found at: \(tempOutput.path)")
-                    DispatchQueue.main.async {
-                        self.isProcessing = false
-                    }
-                }
-
-                // Cleanup temp files
-                try? FileManager.default.removeItem(at: tempInput)
-                try? FileManager.default.removeItem(at: tempOutput)
-
-            } catch {
-                print("Error: \(error)")
-                DispatchQueue.main.async {
+                    
+                case .failure(let error):
+                    print("Error removing background: \(error.localizedDescription)")
                     self.isProcessing = false
                 }
+            }
+        }
+        
+        // Simulate progress while waiting for server response
+        DispatchQueue.global(qos: .background).async {
+            while self.isProcessing && self.progress < 0.9 {
+                DispatchQueue.main.async {
+                    self.progress += 0.05
+                }
+                Thread.sleep(forTimeInterval: 0.3)
             }
         }
     }

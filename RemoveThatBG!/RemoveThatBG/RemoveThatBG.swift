@@ -11,6 +11,12 @@ import SwiftUI
 struct MyMenuBarAppApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
+    init() {
+        // Start Python server ONCE in App init, NOT in AppDelegate
+        PythonServerManager.shared.startServer()
+        print("🚀 Python server started from App.init()")
+    }
+    
     var body: some Scene {
         Settings {
             EmptyView()
@@ -32,6 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var settingsWindow: NSWindow?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // Python server is started in App.init(), NOT here!
+        
         // Create the status item (menu bar icon)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         
@@ -151,6 +159,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let window = notification.object as? NSWindow, window == settingsWindow {
             settingsWindow = nil
         }
+    }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        // Stop the Python server when the app quits
+        PythonServerManager.shared.stopServer()
     }
 }
 
