@@ -6,6 +6,7 @@
 PythonBackend/dist/
 PythonBackend/build/
 RemoveThatBG\!/RemoveThatBG/remove_bg_old
+!RemoveThatBG!/RemoveThatBG/remove_bg/
 #RemoveThatBG\!/RemoveThatBG/remove_bg
 
 
@@ -26,7 +27,6 @@ xcuserdata/
 
 
 # Swift Package Manager
-Packages/
 .build/
 .swiftpm/configuration/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
