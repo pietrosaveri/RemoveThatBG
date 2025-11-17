@@ -6,7 +6,7 @@
 PythonBackend/dist/
 PythonBackend/build/
 RemoveThatBG\!/RemoveThatBG/remove_bg_old
-RemoveThatBG\!/RemoveThatBG/remove_bg
+#RemoveThatBG\!/RemoveThatBG/remove_bg
 
 
 # Ignore the RemoveThatBG! binary
@@ -82,8 +82,6 @@ Artifacts/
 
 # Bundle artifacts
 *.app
-*.framework
-*.xcframework
 
 # Other
 *.lock
