@@ -6,8 +6,11 @@
 PythonBackend/dist/
 PythonBackend/build/
 RemoveThatBG\!/RemoveThatBG/remove_bg_old
+
+#do not ignore this
 !RemoveThatBG!/RemoveThatBG/remove_bg/
-#RemoveThatBG\!/RemoveThatBG/remove_bg
+
+
 
 
 # Ignore the RemoveThatBG! binary
