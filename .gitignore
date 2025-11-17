@@ -12,28 +12,6 @@ RemoveThatBG\!/RemoveThatBG/remove_bg_old
 __pycache__/
 .DS_Store
 
-# Personal settings
-xcuserdata/
-
-
-# Swift Package Manager
-.build/
-.swiftpm/configuration/registries.json
-.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
-.swiftpm/xcode/package.xcworkspace/xcuserdata/
-.swiftpm/xcode/xcshareddata/
-.swiftpm/xcode/playgrounds/
-
-
-# Playgrounds
-timeline.xctimeline
-playground.xcworkspace
-
-# SwiftPM binary artifacts
-Artifacts/
-
-# Simulator / device logs
-*.log
 
 # Env files / secrets
 .env
