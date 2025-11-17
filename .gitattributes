@@ -4,3 +4,4 @@ RemoveThatBG/Users/pietrosaveri/Desktop/bg_remover/main.py filter=lfs diff=lfs m
 RemoveThatBG!/RemoveThatBG/remove_bg filter=lfs diff=lfs merge=lfs -text
 PythonBackend/dist/remove_bg filter=lfs diff=lfs merge=lfs -text
 RemoveThatBG!/RemoveThatBG/remove_bg/** filter=lfs diff=lfs merge=lfs -text
+RemoveThatBG!/RemoveThatBG/remove_bg/_internal/llvmlite/binding/libllvmlite.dylib filter=lfs diff=lfs merge=lfs -text
