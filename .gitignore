@@ -16,7 +16,6 @@ RemoveThatBG\!/RemoveThatBG/remove_bg_old
 __pycache__/
 .DS_Store
 
-
 ### Xcode ###
 # Build artifacts
 build/
@@ -24,16 +23,7 @@ DerivedData/
 
 # Personal settings
 xcuserdata/
-*.xcuserstate
 
-# Workspace & schemes (safe to ignore unless shared)
-*.xcworkspace
-xcshareddata/WorkspaceSettings.xcsettings
-
-# IDE files
-*.moved-aside
-*.xccheckout
-*.xcscmblueprint
 
 # Swift Package Manager
 Packages/
@@ -58,13 +48,6 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
-# Archives
-*.xcarchive
-
-# App artifacts
-*.ipa
-*.dSYM.zip
-*.dSYM
 
 # Playgrounds
 timeline.xctimeline
@@ -87,7 +70,6 @@ Artifacts/
 *.lock
 
 # Ignore Xcode workspace user data
-*.xcuserstate
 xcuserdata/
 
 
