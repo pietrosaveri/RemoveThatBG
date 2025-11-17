@@ -72,7 +72,5 @@ Artifacts/
 # Other
 *.lock
 
-# Ignore Xcode workspace user data
-xcuserdata/
 
 
