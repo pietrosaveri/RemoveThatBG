@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CBA8E0382ECB61180001FD50 /* _internal in Resources */ = {isa = PBXBuildFile; fileRef = CBA8E0372ECB61180001FD50 /* _internal */; };
+		CBB752A32ECBB51A00BF53C4 /* _internal in Resources */ = {isa = PBXBuildFile; fileRef = CBB752A22ECBB51900BF53C4 /* _internal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		CB0196EB2EC5C8ED0064039E /* RemoveThatBG!Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RemoveThatBG!Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0196F52EC5C8ED0064039E /* RemoveThatBG!UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RemoveThatBG!UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0FFD892EC93E2E00F58CA4 /* RemoveThatBG!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RemoveThatBG!.entitlements"; sourceTree = "<group>"; };
-		CBA8E0372ECB61180001FD50 /* _internal */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _internal; path = RemoveThatBG/remove_bg/_internal; sourceTree = "<group>"; };
+		CBB752A22ECBB51900BF53C4 /* _internal */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _internal; path = RemoveThatBG/remove_bg/_internal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -5060,7 +5060,7 @@
 		CB0196D12EC5C8EC0064039E = {
 			isa = PBXGroup;
 			children = (
-				CBA8E0372ECB61180001FD50 /* _internal */,
+				CBB752A22ECBB51900BF53C4 /* _internal */,
 				CB0FFD892EC93E2E00F58CA4 /* RemoveThatBG!.entitlements */,
 				CB0196DC2EC5C8EC0064039E /* RemoveThatBG */,
 				CB04AD952EC8A25900BA75F3 /* Frameworks */,
@@ -5203,7 +5203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBA8E0382ECB61180001FD50 /* _internal in Resources */,
+				CBB752A32ECBB51A00BF53C4 /* _internal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
