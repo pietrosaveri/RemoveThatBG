@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CBB752A32ECBB51A00BF53C4 /* _internal in Resources */ = {isa = PBXBuildFile; fileRef = CBB752A22ECBB51900BF53C4 /* _internal */; };
+		CBE31AB92ECC9F1100045149 /* _internal in Resources */ = {isa = PBXBuildFile; fileRef = CBE31AB82ECC9F1000045149 /* _internal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		CB0196EB2EC5C8ED0064039E /* RemoveThatBG!Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RemoveThatBG!Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0196F52EC5C8ED0064039E /* RemoveThatBG!UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RemoveThatBG!UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0FFD892EC93E2E00F58CA4 /* RemoveThatBG!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RemoveThatBG!.entitlements"; sourceTree = "<group>"; };
-		CBB752A22ECBB51900BF53C4 /* _internal */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _internal; path = RemoveThatBG/remove_bg/_internal; sourceTree = "<group>"; };
+		CBE31AB82ECC9F1000045149 /* _internal */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _internal; path = RemoveThatBG/remove_bg/_internal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -5060,7 +5060,7 @@
 		CB0196D12EC5C8EC0064039E = {
 			isa = PBXGroup;
 			children = (
-				CBB752A22ECBB51900BF53C4 /* _internal */,
+				CBE31AB82ECC9F1000045149 /* _internal */,
 				CB0FFD892EC93E2E00F58CA4 /* RemoveThatBG!.entitlements */,
 				CB0196DC2EC5C8EC0064039E /* RemoveThatBG */,
 				CB04AD952EC8A25900BA75F3 /* Frameworks */,
@@ -5203,7 +5203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBB752A32ECBB51A00BF53C4 /* _internal in Resources */,
+				CBE31AB92ECC9F1100045149 /* _internal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5240,7 +5240,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nset -e\n\n# Path to the built .app\nAPP=\"$TARGET_BUILD_DIR/$WRAPPER_NAME\"\n\n# Path to your Python bundle inside the app\nPYTHON_BUNDLE=\"$APP/Contents/MacOS/remove_bg\"\n\n# Check if the bundle exists\nif [ ! -e \"$PYTHON_BUNDLE\" ]; then\n    echo \"Python bundle not found at $PYTHON_BUNDLE, skipping signing.\"\n    exit 0\nfi\n\necho \"Signing Python bundle and all nested binaries...\"\n\n# Recursively sign all executables and dynamic libraries inside the bundle\nfind \"$PYTHON_BUNDLE\" -type f \\( -perm +111 -o -name '*.dylib' -o -name '*.so' -o -name '*.framework' \\) -print0 | while IFS= read -r -d '' file; do\n    echo \"Signing $file\"\n    /usr/bin/codesign --force --options runtime --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" \"$file\"\ndone\n\n# Sign the top-level Python binary\necho \"Signing top-level binary $PYTHON_BUNDLE\"\n/usr/bin/codesign --force --options runtime --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" \"$PYTHON_BUNDLE\"\n\necho \"Python bundle signing complete.\"\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -8,7 +8,7 @@ RemoveThatBG!
 
 
 <h1 align="center">
-<img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=flat&color=BC4E99" alt="Star Badge"/>
+<img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=Is%20Useful&style=flat&color=BC4E99" alt="Star Badge"/>
 <img src="https://img.shields.io/static/v1?label=%F0%9F%9A%80&message=Quick%20&%20Easy&style=flat&color=FF6F61" alt="Rocket Badge"/>
 <img src="https://img.shields.io/static/v1?label=%F0%9F%8E%A8&message=High%20Quality&style=flat&color=6A5ACD" alt="High Quality Badge"/>
 <img src="https://img.shields.io/static/v1?label=%F0%9F%96%B1%EF%B8%8F&message=Drag%20&%20Drop&style=flat&color=20B2AA" alt="Drag and Drop Badge"/>
@@ -25,14 +25,13 @@ RemoveThatBG!
 # About the App
 
 Have you ever had to do a PowerPoint or a presentation where you needed an image, but it had a horrible background?
-You probably went on Google and typed "image background removal," and yes, a lot of sites are there, they work great, but wait—
-you have to first decide which site, then you probably get flash-banged by lots of ads, and when you can finally edit your image, WAIT, login! Don’t want to login?
+You probably went on Google and typed "image background removal," and yes, a lot of sites are there, they work great, but wait you have to first decide which site, then you probably get flash-banged by lots of ads, and when you can finally edit your image, WAIT, login! Don’t want to login?
 You can only download it in 240p.
 
 I hated that. It takes too long, and I don’t want to lose quality. I wanted something quick, easy to reach, always ready when I needed it the most.
-Enter **RemoveThatBG!**, a standalone app that lives rent-free in your top bar menu on your Mac—you won’t even notice it’s there! But when you need it, it’s ready for action, always waiting for you.
-Just open it and drag and drop (or paste) any image, even WebP! From anywhere—Finder, Google, WhatsApp—and wait just a few seconds (actually a bit more; I’m still working on the Python-Swift interaction, but hey, I will fix it).
-And BOOM! In just a couple of little seconds (as I said, more, but let me have fun), your image will be ready. From now on, it’s pretty easy: you can copy or drag it wherever you want.
+Enter **RemoveThatBG!**, a standalone app that lives rent-free in your top bar menu on your Mac, you (and your CPU/RAM) won’t even notice it’s there! But when you need it, it’s ready for action, always waiting for you.
+
+Just open it and drag and drop (or paste) any image, even the infamous WebP! From anywhere, Finder, Google, WhatsApp...wait just a few seconds and **BOOM!** In just a couple of little seconds, your image will be ready. From now on, it’s pretty easy: you can copy or drag it wherever you want.
 Have fun!!
 
 ---
@@ -58,8 +57,8 @@ Have fun!!
 
 **Model Selection:**
 	- The default model is **u2netp.onnx** (the lightest, fastest to download, and works offline immediately). However, it is not the best in terms of background removal quality.
-	- For best results, switch to **isnet-general-use** in Settings → Model Tab. This model offers superior performance and accuracy, especially for complex images. The first use will download the model automatically.
-	- Choose from a range of state-of-the-art models for portraits, anime, high-res, and more. All models are stored locally for fast, offline use.
+	- For best results, switch to **isnet-general-use** in Settings → Model Tab. This model offers superior performance and accuracy, especially for complex images.
+	Choose from a range of state-of-the-art models for portraits, anime, high-res, and more. All models are stored locally for fast, offline use.
 
 **Design Customization:** Personalize your experience with animation and design settings.
 
