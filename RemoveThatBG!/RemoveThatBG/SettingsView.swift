@@ -11,11 +11,15 @@ struct ModelOption: Identifiable, Hashable {
     let id: String
     let name: String
     let description: String
+    let size: String // e.g. "176 MB"
+    let sizeBytes: Int // for sorting/comparison
     
-    init(_ name: String, _ description: String) {
+    init(_ name: String, _ description: String, _ size: String, _ sizeBytes: Int) {
         self.id = name
         self.name = name
         self.description = description
+        self.size = size
+        self.sizeBytes = sizeBytes
     }
 }
 
@@ -60,19 +64,18 @@ struct SettingsView: View {
     @State private var selectedTab: SettingsTab = .authors
     
     let models: [ModelOption] = [
-        ModelOption("u2net", "A pre-trained model for general use cases."),
-        ModelOption("u2netp", "A lightweight version of u2net model."),
-        ModelOption("u2net_human_seg", "A pre-trained model for human segmentation."),
-        ModelOption("silueta", "Same as u2net but the size is reduced to 43Mb."),
-        ModelOption("isnet-general-use", "A new pre-trained model for general use cases. (recommended)"),
-        ModelOption("isnet-anime", "A high-accuracy segmentation for anime character."),
-        ModelOption("birefnet-general", "A pre-trained model for general use cases."),
-        ModelOption("birefnet-general-lite", "A light pre-trained model for general use cases."),
-        ModelOption("birefnet-portrait", "A pre-trained model for human portraits."),
-        ModelOption("birefnet-dis", "A pre-trained model for dichotomous image segmentation (DIS)"),
-        ModelOption("birefnet-hrsod", "A pre-trained model for high-resolution salient object detection (HRSOD)"),
-        ModelOption("birefnet-cod", "A pre-trained model for concealed object detection (COD)."),
-        ModelOption("birefnet-massive", "Massive dataset training")
+        ModelOption("u2net", "A pre-trained model for general use cases.", "176 MB", 176),
+        ModelOption("u2netp", "A lightweight version of u2net model.", "4.6 MB", 5),
+        ModelOption("u2net_human_seg", "A pre-trained model for human segmentation.", "176 MB", 176),
+        ModelOption("isnet-general-use", "A new pre-trained model for general use cases. (recommended)", "178.6 MB", 179),
+        ModelOption("isnet-anime", "A high-accuracy segmentation for anime character.", "176.1 MB", 176),
+        ModelOption("birefnet-general", "A pre-trained model for general use cases.", "972.7 MB", 973),
+        ModelOption("birefnet-general-lite", "A light pre-trained model for general use cases.", "224 MB", 224),
+        ModelOption("birefnet-portrait", "A pre-trained model for human portraits.", "972.7 MB", 973),
+        ModelOption("birefnet-dis", "A pre-trained model for dichotomous image segmentation (DIS)", "972.7 MB", 973),
+        ModelOption("birefnet-hrsod", "A pre-trained model for high-resolution salient object detection (HRSOD)", "972.7 MB", 973),
+        ModelOption("birefnet-cod", "A pre-trained model for concealed object detection (COD).", "972.7 MB", 973),
+        ModelOption("birefnet-massive", "Massive dataset training", "972.7 MB", 973)
     ]
     
     var body: some View {
@@ -212,6 +215,32 @@ struct ModelTabContent: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(8)
+                    
+                    // Model size indicator
+                    HStack(spacing: 8) {
+                        Text("Size:")
+                            .font(.headline)
+                        
+                        // Size badge with color based on file size
+                        HStack(spacing: 4) {
+                            Image(systemName: sizeIcon(for: selectedModelInfo.sizeBytes))
+                                .foregroundColor(sizeColor(for: selectedModelInfo.sizeBytes))
+                            Text(selectedModelInfo.size)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(sizeColor(for: selectedModelInfo.sizeBytes).opacity(0.15))
+                        .cornerRadius(8)
+                        
+                        Spacer()
+                        
+                        // Size indicator text
+                        Text(sizeLabel(for: selectedModelInfo.sizeBytes))
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
                 }
                 
                 // Model status check with download button
@@ -234,10 +263,10 @@ struct ModelTabContent: View {
             Text("""
             When you download a new model, the download begins immediately. Depending on the model’s size, this process may take some time.
             
-            The “Silueta” model is the lightest option and still delivers very good results, making it ideal for most users.
+            The “u2netp” model is the lightest option and still delivers very good results, making it ideal for most users.
             
             If you have a slow or unstable internet connection, consider using a local model for faster and more reliable performance.
-            The model server runs on port 55000 on your computer.
+            The model server runs on the first free port in the range 55000 on your computer.
             
             When you close the app, the server shuts down automatically.
             If the server fails to start, you may have another process using that port.
@@ -252,7 +281,7 @@ struct ModelTabContent: View {
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(8)
             
-            Text("Note: All models will download to ~/.u2net/")
+            Text("Note: All models will download to ~/Library/Application Support/RemoveThatBG/models/")
                 .font(.caption)
                 .foregroundColor(.secondary)
                 .padding(.top, 8)
@@ -260,6 +289,34 @@ struct ModelTabContent: View {
             Spacer()
         }
         .padding(24)
+    }
+    
+    // Helper functions for size indicators
+    private func sizeColor(for sizeMB: Int) -> Color {
+        switch sizeMB {
+        case 0..<50: return .green
+        case 50..<200: return .blue
+        case 200..<500: return .orange
+        default: return .red
+        }
+    }
+    
+    private func sizeIcon(for sizeMB: Int) -> String {
+        switch sizeMB {
+        case 0..<50: return "hare.fill"
+        case 50..<200: return "tortoise.fill"
+        case 200..<500: return "arrow.down.circle.fill"
+        default: return "exclamationmark.arrow.triangle.2.circlepath"
+        }
+    }
+    
+    private func sizeLabel(for sizeMB: Int) -> String {
+        switch sizeMB {
+        case 0..<50: return "Very light"
+        case 50..<200: return "Light"
+        case 200..<500: return "Medium"
+        default: return "Heavy"
+        }
     }
 }
 
@@ -270,14 +327,14 @@ struct ModelStatusView: View {
     
     // Simple computed property - checks file existence every time view updates
     private var isDownloaded: Bool {
-        let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
-        let path = homeDirectory.appendingPathComponent(".u2net/\(modelName).onnx").path
+        let modelsDir = PythonServerManager.shared.getModelsDirectory()
+        let path = modelsDir.appendingPathComponent("\(modelName).onnx").path
         return FileManager.default.fileExists(atPath: path)
     }
     
     private var modelPath: String {
-        let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
-        return homeDirectory.appendingPathComponent(".u2net/\(modelName).onnx").path
+        let modelsDir = PythonServerManager.shared.getModelsDirectory()
+        return modelsDir.appendingPathComponent("\(modelName).onnx").path
     }
     
     var body: some View {

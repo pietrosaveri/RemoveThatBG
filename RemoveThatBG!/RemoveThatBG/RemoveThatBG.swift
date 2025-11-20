@@ -12,9 +12,25 @@ struct MyMenuBarAppApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     init() {
-        // Start Python server ONCE in App init, NOT in AppDelegate
-        PythonServerManager.shared.startServer()
-        print("🚀 Python server started from App.init()")
+        // Check and install dependencies, then start server
+        print("🚀 Checking Python dependencies...")
+        PythonServerManager.shared.checkAndInstallDependencies { success, error in
+            if success {
+                print("✅ Dependencies ready, starting server")
+                PythonServerManager.shared.startServer()
+            } else {
+                print("❌ Dependency check failed: \(error ?? "Unknown error")")
+                // Show alert to user
+                DispatchQueue.main.async {
+                    let alert = NSAlert()
+                    alert.messageText = "Python Dependencies Required"
+                    alert.informativeText = error ?? "Failed to install required Python packages. Please install manually:\n\npip3 install -r requirements.txt"
+                    alert.alertStyle = .warning
+                    alert.addButton(withTitle: "OK")
+                    alert.runModal()
+                }
+            }
+        }
     }
     
     var body: some Scene {
@@ -163,6 +179,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationWillTerminate(_ notification: Notification) {
         // Stop the Python server when the app quits
+        print("🚨 Application will terminate - stopping server")
         PythonServerManager.shared.stopServer()
     }
 }

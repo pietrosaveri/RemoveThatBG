@@ -6,6 +6,24 @@
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
       buildArchitectures = "Automatic">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "APP_PATH=&quot;${TARGET_BUILD_DIR}/${WRAPPER_NAME}&quot;&#10;PY_ROOT=&quot;$APP_PATH/Contents/Resources/remove_bg&quot;&#10;IDENTITY=&quot;Apple Development: Pietro Saveri (P8WHCK3Y3Z)&quot;&#10;&#10;# Sign all .so, .dylib, executables inside remove_bg&#10;find &quot;$PY_ROOT&quot; -type f \( \&#10;    -name &quot;*.so&quot; -o \&#10;    -name &quot;*.dylib&quot; -o \&#10;    -perm +111 \&#10;\) | while read FILE; do&#10;    echo &quot;&#x27a1;&#xfe0f; Signing: $FILE&quot;&#10;    codesign --force --options runtime --timestamp \&#10;        --sign &quot;$IDENTITY&quot; &quot;$FILE&quot;&#10;done&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "CB0196D92EC5C8EC0064039E"
+                     BuildableName = "RemoveThatBG!.app"
+                     BlueprintName = "RemoveThatBG!"
+                     ReferencedContainer = "container:RemoveThatBG!.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -31,7 +49,7 @@
       shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -50,13 +68,6 @@
             ReferencedContainer = "container:RemoveThatBG!.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "PYTHON_LIBRARY"
-            value = "/opt/homebrew/opt/python@3.14/Frameworks/Python.framework/Versions/3.14/lib/libpython3.14.dylib"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -79,7 +90,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
