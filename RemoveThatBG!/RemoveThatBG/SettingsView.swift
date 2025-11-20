@@ -261,18 +261,18 @@ struct ModelTabContent: View {
                 .font(.headline)
             
             Text("""
-            When you download a new model, the download begins immediately. Depending on the model’s size, this process may take some time.
+            When you download a new model, the download starts immediately. Depending on the model’s size, this may take a little while.
+            
+            The first image you process with a model may take longer, as the model needs to be loaded into cache. After that, processing speed increases significantly.
             
             The “u2netp” model is the lightest option and still delivers very good results, making it ideal for most users.
             
             If you have a slow or unstable internet connection, consider using a local model for faster and more reliable performance.
-            The model server runs on the first free port in the range 55000 on your computer.
+            
+            The model server automatically starts on the first available port between 55000 and 55010 on your computer.
             
             When you close the app, the server shuts down automatically.
-            If the server fails to start, you may have another process using that port.
-            To check, run the following command in your terminal: 
-            
-            "lsof -i :55000"
+            If the server fails to start, a message is shown in the main window.
             """)
                 .font(.body)
                 .foregroundColor(.secondary)
