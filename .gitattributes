@@ -6,3 +6,4 @@ PythonBackend/dist/remove_bg filter=lfs diff=lfs merge=lfs -text
 RemoveThatBG!/RemoveThatBG/remove_bg/** filter=lfs diff=lfs merge=lfs -text
 RemoveThatBG!/RemoveThatBG/remove_bg/_internal/llvmlite/binding/libllvmlite.dylib filter=lfs diff=lfs merge=lfs -text
 RemoveThatBG!/PythonBackend/dist/remove_bg/_internal/llvmlite/binding/libllvmlite.dylib filter=lfs diff=lfs merge=lfs -text
+/Users/pietrosaveri/Desktop/RemoveThatBG/Video/screen.gif filter=lfs diff=lfs merge=lfs -text
