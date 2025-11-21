@@ -45,7 +45,7 @@ Have fun!!
 
 ---
 
-**Instant Background Removal:** Drag, drop, or paste any image—RemoveThatBG! instantly removes the background with high accuracy.
+**Instant Background Removal:** Drag, drop, or paste any image, RemoveThatBG! instantly removes the background with high accuracy.
 
 **Multi-Format Support:** Works with PNG, JPEG, WebP, and more. Paste or drop images from Finder, browsers, or messaging apps.
 
@@ -56,8 +56,8 @@ Have fun!!
 **High-Quality Output:** Maintains original image resolution and quality.
 
 **Model Selection:**
-	- The default model is **u2netp.onnx** (the lightest, fastest to download, and works offline immediately). However, it is not the best in terms of background removal quality.
-	- For best results, switch to **isnet-general-use** in Settings → Model Tab. This model offers superior performance and accuracy, especially for complex images.
+	The default model is **u2netp.onnx** (the lightest, fastest to download, and works offline immediately). However, it is not the best in terms of background removal quality. 
+	For best results, switch to **isnet-general-use** in Settings → Model Tab. This model offers superior performance and accuracy, especially for complex images.
 	Choose from a range of state-of-the-art models for portraits, anime, high-res, and more. All models are stored locally for fast, offline use.
 
 **Design Customization:** Personalize your experience with animation and design settings.
@@ -68,12 +68,12 @@ Have fun!!
 
 # Settings (⌘+,)
 
-RemoveThatBG! offers a beautiful, intuitive settings page to tailor the app to your workflow:
+RemoveThatBG! offers a beautiful, incredibly good looking intuitive settings page to tailor the app to your workflow:
 
 ### 📦 Model Tab
 - **Default Model:** `u2netp.onnx` is selected by default for instant, lightweight performance. For higher quality, switch to `isnet-general-use`.
 - **Model Selection:** Pick from a curated list of background removal models, each optimized for different scenarios (general, human, anime, high-res, etc.).
-- **Model Status:** Instantly see if a model is downloaded and ready to use. Models are stored in `~/.u2net/` for offline performance.
+- **Model Status:** Instantly see if a model is downloaded and ready to use. Models are stored in `'/Users/<USER_NAME>/Library/Application Support/RemoveThatBG/models'` for offline performance. Note to the `Library` foleder is a hidden folder, use `cmd+shift+.` to find it.
 - **Speed & Performance:** The first use of a new model downloads it automatically. Subsequent uses are much faster. Swift–Python integration is actively optimized for speed.
 - **Descriptions:** Each model includes a detailed description to help you choose the best fit for your needs.
 
