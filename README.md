@@ -34,7 +34,6 @@ Enter **RemoveThatBG!**, a standalone app that lives rent-free in your top bar m
 Just open it and drag and drop (or paste) any image, even the infamous WebP! From anywhere, Finder, Google, WhatsApp...wait just a few seconds and **BOOM!** In just a couple of little seconds, your image will be ready. From now on, it’s pretty easy: you can copy or drag it wherever you want.
 Have fun!!
 
-![alt text](<BenQ EW277HDR 2025-11-21 14:03:02.gif>)
 ---
 
 # Features
