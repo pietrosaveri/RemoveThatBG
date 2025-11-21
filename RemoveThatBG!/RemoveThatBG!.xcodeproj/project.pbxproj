@@ -460,7 +460,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "RemoveThatBG!";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2573,6 +2573,7 @@
 					"$(PROJECT_DIR)/PythonBackend/dist/remove_bg/_internal/zmq/.dylibs",
 					"$(PROJECT_DIR)/PythonBackend/dist/remove_bg/_internal/scipy/.dylibs",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pietrosaveri.RemoveThatBG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2617,7 +2618,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "RemoveThatBG!";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -4730,6 +4731,7 @@
 					"$(PROJECT_DIR)/PythonBackend/dist/remove_bg/_internal/zmq/.dylibs",
 					"$(PROJECT_DIR)/PythonBackend/dist/remove_bg/_internal/scipy/.dylibs",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pietrosaveri.RemoveThatBG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
