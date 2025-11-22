@@ -37,9 +37,14 @@ Have fun!!
 
 <p align="center">
   <a href="https://github.com/pietrosaveri/RemoveThatBG/releases/download/1.0/RemoveThatBG.dmg">
-    <img src="https://img.shields.io/badge/Download%20RemoveThatBG!-brightgreen?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/Download%20here!-blue?style=for-the-badge" width="350">
   </a>
 </p>
+
+<div align="center">
+(Not a scam)
+</div>
+
 
 ---
 
