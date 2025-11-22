@@ -3,6 +3,7 @@
   <img src="Logos/AppLogo/RemoveThatBG_App.png" width="300">
 </p>
 
+
 <h1 align="center">
 RemoveThatBG!
 
@@ -20,8 +21,6 @@ RemoveThatBG!
 <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%8D&message=Anywhere&style=flat&color=00CED1" alt="Works Anywhere Badge"/>
 </h1>
 
-
-
 # About the App
 
 Have you ever had to do a PowerPoint or a presentation where you needed an image, but it had a horrible background?
@@ -35,6 +34,12 @@ Just open it and drag and drop (or paste) any image, even the infamous WebP! Fro
 Have fun!!
 
 ![Demo Video](/Video/screen.gif)
+
+<p align="center">
+  <a href="https://github.com/pietrosaveri/RemoveThatBG/releases/download/1.0/RemoveThatBG.dmg">
+    <img src="https://img.shields.io/badge/Download%20RemoveThatBG!-brightgreen?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
