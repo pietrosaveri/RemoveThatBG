@@ -7,6 +7,8 @@ RemoveThatBG\!/RemoveThatBG/remove_bg_old
 #IGNORE THE OUTUT OF THE remove_bg.spec FILE if you really want it you copy and paste it XCODE
 RemoveThatBG\!/RemoveThatBG/remove_bg/
 
+Releases/v1.0/RemoveThatBG\!.app/**
+
 
 #HERE
 __pycache__/
