@@ -10,15 +10,11 @@ RemoveThatBG!
 
 <h1 align="center">
 <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=Is%20Useful&style=flat&color=BC4E99" alt="Star Badge"/>
-<img src="https://img.shields.io/static/v1?label=%F0%9F%9A%80&message=Quick%20&%20Easy&style=flat&color=FF6F61" alt="Rocket Badge"/>
 <img src="https://img.shields.io/static/v1?label=%F0%9F%8E%A8&message=High%20Quality&style=flat&color=6A5ACD" alt="High Quality Badge"/>
 <img src="https://img.shields.io/static/v1?label=%F0%9F%96%B1%EF%B8%8F&message=Drag%20&%20Drop&style=flat&color=20B2AA" alt="Drag and Drop Badge"/>
 <img src="https://img.shields.io/static/v1?label=%E2%9A%A1&message=Fast&style=flat&color=FFA500" alt="Fast Badge"/>
 <img src="https://img.shields.io/static/v1?label=%F0%9F%96%B8&message=All%20Formats&style=flat&color=4B0082" alt="All Formats Badge"/>
-<img src="https://img.shields.io/static/v1?label=%E2%9C%82%EF%B8%8F&message=Remove%20BG&style=flat&color=FF4500" alt="Remove Background Badge"/>
-<img src="https://img.shields.io/static/v1?label=%F0%9F%92%BE&message=HD%20Output&style=flat&color=2E8B57" alt="HD Output Badge"/>
-<img src="https://img.shields.io/static/v1?label=%E2%8F%B1&message=Fast%20&%20Lightweight&style=flat&color=1E90FF" alt="Fast & Lightweight Badge"/>
-<img src="https://img.shields.io/static/v1?label=%F0%9F%8C%8D&message=Anywhere&style=flat&color=00CED1" alt="Works Anywhere Badge"/>
+
 </h1>
 
 # About the App
