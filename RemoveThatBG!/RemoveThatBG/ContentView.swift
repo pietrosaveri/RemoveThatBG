@@ -21,39 +21,13 @@ struct ContentView: View {
     @State private var errorMessage: String? = nil // NEW: Error message display
     @State private var showingError: Bool = false // NEW: Show error alert
     @StateObject private var settings = SettingsManager.shared
-    @ObservedObject private var serverManager = PythonServerManager.shared
+    @ObservedObject private var backgroundService = BackgroundRemovalService.shared
     
     var body: some View {
         VStack(spacing: -10) {
             
-            // Top bar with server status and preferences
+            // Top bar with preferences indicator
             HStack {
-                // Server status indicator
-                HStack(spacing: 4) {
-                    Image(systemName: serverManager.isServerRunning ? "checkmark.circle.fill" : "xmark.circle.fill")
-                        .foregroundColor(serverManager.isServerRunning ? .green : .red)
-                        .font(.system(size: 12))
-                    Text(serverManager.isServerRunning ? "Ready" : "Starting...")
-                        .font(.caption2)
-                        .foregroundColor(serverManager.isServerRunning ? .green : .red)
-                    
-                    // Show error if present
-                    if let error = serverManager.lastError {
-                        Button(action: {
-                            errorMessage = error
-                            showingError = true
-                        }) {
-                            Image(systemName: "exclamationmark.triangle.fill")
-                                .foregroundColor(.orange)
-                                .font(.system(size: 12))
-                        }
-                        .buttonStyle(.plain)
-                        .help("Show error details")
-                    }
-                }
-                .padding(.leading, 12)
-                .padding(.top, 8)
-                
                 Spacer()
                 
                 Text("Preferences: ⌘,")
@@ -386,7 +360,7 @@ struct ContentView: View {
         print("Copied to clipboard: \(success)")
     }
 
-    // Remove background using Python server
+    // Remove background using Apple Vision API
     func removeBackground(from image: NSImage) {
         isProcessing = true
         processedImage = nil
@@ -396,58 +370,8 @@ struct ContentView: View {
             self.progress = 0.1
         }
         
-        let selectedModel = self.settings.selectedModel
-        
-        // Check if model is downloaded, download if needed
-        let modelsDir = PythonServerManager.shared.getModelsDirectory()
-        let modelPath = modelsDir.appendingPathComponent("\(selectedModel).onnx")
-        let modelExists = FileManager.default.fileExists(atPath: modelPath.path)
-        
-        if !modelExists {
-            print("[ContentView] Model \(selectedModel) not found, downloading first...")
-            
-            // Check if server is running before attempting download
-            guard serverManager.isServerRunning else {
-                DispatchQueue.main.async {
-                    self.errorMessage = "Server is not running. Please wait for it to start or restart the application."
-                    self.showingError = true
-                    self.isProcessing = false
-                }
-                return
-            }
-            
-            PythonServerManager.shared.downloadModel(selectedModel) { success in
-                DispatchQueue.main.async {
-                    if success {
-                        print("[ContentView] Model \(selectedModel) downloaded, now processing image")
-                        self.processImageWithModel(image, model: selectedModel)
-                    } else {
-                        print("[ContentView] Failed to download model \(selectedModel)")
-                        self.errorMessage = "Failed to download model '\(selectedModel)'. Please check your internet connection."
-                        self.showingError = true
-                        self.isProcessing = false
-                    }
-                }
-            }
-        } else {
-            // Model already exists, process immediately
-            print("[ContentView] Model \(selectedModel) already exists, processing image")
-            processImageWithModel(image, model: selectedModel)
-        }
-    }
-    
-    private func processImageWithModel(_ image: NSImage, model: String) {
-        // Final check that server is running
-        guard serverManager.isServerRunning else {
-            DispatchQueue.main.async {
-                self.errorMessage = "Server is not ready. Please try again in a moment."
-                self.showingError = true
-                self.isProcessing = false
-            }
-            return
-        }
-        
-        PythonServerManager.shared.removeBackground(from: image, model: model) { result in
+        // Use native Vision framework
+        BackgroundRemovalService.shared.removeBackground(from: image) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let resultImage):
@@ -472,7 +396,7 @@ struct ContentView: View {
             }
         }
         
-        // Simulate progress while waiting for server response
+        // Simulate progress while waiting for processing
         DispatchQueue.global(qos: .background).async {
             while self.isProcessing && self.progress < 0.9 {
                 DispatchQueue.main.async {

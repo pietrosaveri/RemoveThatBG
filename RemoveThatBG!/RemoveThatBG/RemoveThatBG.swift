@@ -12,25 +12,7 @@ struct MyMenuBarAppApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     init() {
-        // Check and install dependencies, then start server
-        print("🚀 Checking Python dependencies...")
-        PythonServerManager.shared.checkAndInstallDependencies { success, error in
-            if success {
-                print("✅ Dependencies ready, starting server")
-                PythonServerManager.shared.startServer()
-            } else {
-                print("❌ Dependency check failed: \(error ?? "Unknown error")")
-                // Show alert to user
-                DispatchQueue.main.async {
-                    let alert = NSAlert()
-                    alert.messageText = "Python Dependencies Required"
-                    alert.informativeText = error ?? "Failed to install required Python packages. Please install manually:\n\npip3 install -r requirements.txt"
-                    alert.alertStyle = .warning
-                    alert.addButton(withTitle: "OK")
-                    alert.runModal()
-                }
-            }
-        }
+        print("✅ RemoveThatBG! using native Apple Vision framework - no Python backend needed")
     }
     
     var body: some Scene {
@@ -54,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var settingsWindow: NSWindow?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        // Python server is started in App.init(), NOT here!
+        // Native Vision framework - no server startup needed!
         
         // Create the status item (menu bar icon)
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -178,9 +160,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationWillTerminate(_ notification: Notification) {
-        // Stop the Python server when the app quits
-        print("🚨 Application will terminate - stopping server")
-        PythonServerManager.shared.stopServer()
+        // No cleanup needed - native Vision framework has no server
+        print("✅ Application terminating")
     }
 }
 
