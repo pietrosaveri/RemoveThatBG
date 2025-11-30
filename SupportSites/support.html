@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemoveThatBG! - Support</title>
+    <style>
+        :root {
+            --primary-color: #007AFF;
+            --bg-color: #F5F5F7;
+            --text-color: #1D1D1F;
+            --secondary-text: #86868B;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            text-align: center;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 40px 20px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            margin: auto;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 18px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.5;
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            font-size: 17px;
+            font-weight: 600;
+            color: white;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 980px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .button:hover {
+            background: #0062cc;
+            transform: scale(1.02);
+        }
+
+        .feedback-box {
+            margin-top: 40px;
+            text-align: left;
+            background: #FBFBFD;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #E5E5E5;
+        }
+
+        .feedback-box h3 {
+            font-size: 19px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #D2D2D7;
+            font-size: 15px;
+            resize: none;
+            font-family: inherit;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+            background: white;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+        }
+
+        .app-icon {
+            width: 128px;
+            height: 128px;
+            margin-bottom: 24px;
+            /* macOS icon shadow style */
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+        }
+        
+        .menubar-hint {
+            display: inline-flex;
+            align-items: center;
+            background: #F2F2F7;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--secondary-text);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .menubar-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            opacity: 0.6;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="../Logos/AppLogo/1024AppIcon.png" alt="RemoveThatBG! Icon" class="app-icon">
+        <div style="height: 24px;"></div>
+        <div class="menubar-hint">
+            <svg class="menubar-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 4H3C1.9 4 1 4.9 1 6V18C1 19.1 1.9 20 3 20H21C22.1 20 23 19.1 23 18V6C23 4.9 22.1 4 21 4ZM21 18H3V6H21V18Z"/>
+            </svg>
+            Lives in your menu bar
+        </div>
+
+        <h1>RemoveThatBG! Support</h1>
+
+        <p><strong>RemoveThatBG!</strong> is the quickest way to remove backgrounds from your images. Just drag, drop, and you're done.</p>
+
+        <p>If you're experiencing issues or have feature requests, we're here to help.</p>
+
+        <a href="mailto:saveri.pietro@icloud.com" class="button">Contact Support</a>
+
+        <div class="feedback-box">
+            <h3>Send Feedback</h3>
+            <textarea id="feedback" placeholder="Describe your issue or suggestion..."></textarea>
+            <button class="button" style="width: 100%; margin-top: 16px; margin-bottom: 0;" onclick="sendFeedback()">Submit Feedback</button>
+        </div>
+    </div>
+
+    <script>
+        function sendFeedback() {
+            var feedbackText = document.getElementById('feedback').value;
+            if (feedbackText.trim() === "") {
+                alert("Please enter your feedback before submitting.");
+                return;
+            }
+
+            var mailtoLink = "mailto:saveri.pietro@icloud.com?subject=RemoveThatBG! Feedback&body=" + encodeURIComponent(feedbackText);
+            window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+
+</html>

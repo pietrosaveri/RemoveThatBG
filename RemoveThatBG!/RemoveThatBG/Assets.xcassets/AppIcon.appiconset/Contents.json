@@ -41,13 +41,12 @@
       "size" : "256x256"
     },
     {
-      "filename" : "512_RemoveThatBG_App.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
-      "filename" : "RemoveThatBG_App.png",
+      "filename" : "1024AppIcon.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
