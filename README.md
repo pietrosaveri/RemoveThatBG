@@ -105,6 +105,13 @@ RemoveThatBG! offers a beautiful, incredibly good looking intuitive settings pag
 3. Wait a few seconds while the background is removed.
 4. Copy or drag the processed image wherever you need it.
 
+# ! NEW *(sad)* UPDATE !
+There a 2 main branches: 
+
+- **main:** This is the original app, built with a Python backend and using [rembg](https://github.com/danielgatis/rembg). It supports multiple specialized local models and can run fully offline. Truly amazing, created by my own original mind.
+
+- **appleAPI:** This is the App Store friendly version. It can be sandboxed, doesn’t rely on a Python backend, and instead uses Apple’s official API. I know, It's sadder, less customizable and feature-rich, kinda mainstream, but hey i can sell it on the App Store (please support me)
+
 ---
 # 🙏 Credits & Thanks
 
