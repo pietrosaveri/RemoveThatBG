@@ -117,6 +117,24 @@ struct AuthorsTabContent: View {
                 .frame(maxWidth: .infinity)
                 
             Spacer()
+            
+            VStack(spacing: 5) {
+                Text("Yes! It's Open Source.")
+                    .font(.headline)
+                
+                HStack(spacing: 4) {
+                    Text("If you want to drop me a star:")
+                    Link(destination: URL(string: "https://github.com/pietrosaveri/RemoveThatBG")!) {
+                        HStack(spacing: 2) {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                            Text("GitHub")
+                        }
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity)
+            
             Spacer()
             Spacer()
             Divider()
