@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		CB6E5B6E2ECF55D100CCF584 /* PythonBackend in Resources */ = {isa = PBXBuildFile; fileRef = CB6E5B6D2ECF55D100CCF584 /* PythonBackend */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		CB0196EC2EC5C8ED0064039E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -44,7 +40,6 @@
 		CB0196EB2EC5C8ED0064039E /* RemoveThatBG!Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RemoveThatBG!Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0196F52EC5C8ED0064039E /* RemoveThatBG!UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RemoveThatBG!UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0FFD892EC93E2E00F58CA4 /* RemoveThatBG!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RemoveThatBG!.entitlements"; sourceTree = "<group>"; };
-		CB6E5B6D2ECF55D100CCF584 /* PythonBackend */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PythonBackend; path = ../PythonBackend; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -83,7 +78,6 @@
 		CB0196D12EC5C8EC0064039E = {
 			isa = PBXGroup;
 			children = (
-				CB6E5B6D2ECF55D100CCF584 /* PythonBackend */,
 				CB0FFD892EC93E2E00F58CA4 /* RemoveThatBG!.entitlements */,
 				CB0196DC2EC5C8EC0064039E /* RemoveThatBG */,
 				CB04AD952EC8A25900BA75F3 /* Frameworks */,
@@ -226,7 +220,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB6E5B6E2ECF55D100CCF584 /* PythonBackend in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
